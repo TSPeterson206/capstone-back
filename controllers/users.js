@@ -2,7 +2,10 @@ const usersModel = require('../models/users')
 const cloudinary = require('cloudinary')
 
 function signup(req, res, next) {
-  const {username, password } = req.body
+  const {
+    username,
+    password
+  } = req.body
   if (!username && !password)
     return next({
       status: 400,
@@ -13,7 +16,7 @@ function signup(req, res, next) {
       if (!data) return next({
         status: 500,
         message: 'Something went wrong. Abandon all hope. The end is nigh friend.'
-      }) 
+      })
       next()
     })
     .catch(next)
@@ -46,7 +49,10 @@ function getAllUsers(req, res, next) {
 }
 
 function editOneUser(req, res, next) {
-  let { profilepic, tagline } = req.body
+  let {
+    profilepic,
+    tagline
+  } = req.body
 
   profilepic = profilepic || undefined
   tagline = tagline || undefined
@@ -58,7 +64,10 @@ function editOneUser(req, res, next) {
     })
   }
 
-  req.body = { profilepic, tagline }
+  req.body = {
+    profilepic,
+    tagline
+  }
 
   return usersModel.editOneUser(req.params.userId, req.body)
     .then((result) => {
@@ -69,7 +78,8 @@ function editOneUser(req, res, next) {
         })
       }
       res.status(201).send({
-        profilepic, displayname, age, bio, type, eatinghabits, quirks
+        profilepic,
+        tagline
       })
     })
 }
@@ -82,13 +92,22 @@ function uploadImage(req, res, next) {
     api_secret: process.env.API_SECRET
   })
   cloudinary.v2.uploader.upload(req.body.image, (err, result) => {
-    if (err) return next({status: 500, message: 'the cloud broke'})
+    if (err) return next({
+      status: 500,
+      message: 'the cloud broke'
+    })
     imageurl = result.url
-    res.status(201).send({image: result.url})
+    res.status(201).send({
+      image: result.url
+    })
   })
   return imageurl
 }
 
 module.exports = {
-  signup, getOneUser, getAllUsers, editOneUser, uploadImage
+  signup,
+  getOneUser,
+  getAllUsers,
+  editOneUser,
+  uploadImage
 }

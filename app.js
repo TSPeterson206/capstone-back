@@ -11,9 +11,11 @@ app.use(cors())
 app.use(morgan('dev'))
 app.use(bodyParser.json({limit: '5mb'}))
 
-// app.use('/users', require('./routes/users'))
+app.use('/users', require('./routes/users'))
 // app.use('/auth', require('./routes/auth'))
-// app.use('/posts', require('./routes/posts'))
+app.use('/providers', require('./routes/providers'))
+app.use('/reviews', require('./routes/reviews'))
+
 
 app.use((req, res, next) => {
   next({status:404, message: 'Unable to locate'})
