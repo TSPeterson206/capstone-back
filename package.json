@@ -1,0 +1,38 @@
+{
+  "name": "capstone-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "knex": "knex"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TSPeterson206/capstone-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TSPeterson206/capstone-back/issues"
+  },
+  "homepage": "https://github.com/TSPeterson206/capstone-back#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.3",
+    "body-parser": "^1.18.3",
+    "cloudinary": "^1.13.2",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "knex": "^0.16.3",
+    "morgan": "^1.9.1",
+    "multer-storage-cloudinary": "^2.2.1",
+    "nodemon": "^1.18.9",
+    "path": "^0.12.7",
+    "pg": "^7.8.0",
+    "run-all": "^1.0.1"
+  }
+}
