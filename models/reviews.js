@@ -4,7 +4,7 @@ function addReview(body) {
   console.log('addreview models body',body)
   return knex('reviews')
     .insert({
-      'user_id': body.userId,
+      'user_id': body.user_id,
       'content': body.content,
       'provider_id': body.provider_id,
       'rating': body.rating

@@ -63,6 +63,7 @@ function updateProvider(req, res, next) {
     .catch(next)
 }
 
+
 module.exports = {
   getAllProviders,
   getOneProvider,
