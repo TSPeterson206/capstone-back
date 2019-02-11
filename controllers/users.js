@@ -94,7 +94,7 @@ function uploadImage(req, res, next) {
   cloudinary.v2.uploader.upload(req.body.image, (err, result) => {
     if (err) return next({
       status: 500,
-      message: 'the cloud broke'
+      message: 'the cloud is just someones elses computer'
     })
     imageurl = result.url
     res.status(201).send({
