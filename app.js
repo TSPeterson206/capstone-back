@@ -12,7 +12,7 @@ app.use(morgan('dev'))
 app.use(bodyParser.json({limit: '5mb'}))
 
 app.use('/users', require('./routes/users'))
-// app.use('/auth', require('./routes/auth'))
+app.use('/auth', require('./routes/auth'))
 app.use('/providers', require('./routes/providers'))
 app.use('/reviews', require('./routes/reviews'))
 app.use('/users/:id/favorites', require('./routes/favorites'))
