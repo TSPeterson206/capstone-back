@@ -12,5 +12,8 @@ exports.seed = function(knex, Promise) {
     .then(() => {
       return knex('type').del()
     })
+    .then(() => {
+      return knex('goals').del()
+    })
 };
 

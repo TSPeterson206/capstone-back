@@ -43,11 +43,11 @@ function getAllReviews(req, res, next) {
 function getOneProviderReviews(req, res, next) {
   model.getOneProviderReviews(req.params.providerId)
     .then((result) => {
-      if (!result || result.length === 0)
-        return next({
-          status: 404,
-          message: "provider not found!"
-        })
+      // if (!result || result.length === 0)
+      //   return next({
+      //     status: 404,
+      //     message: "provider not found!"
+      //   })
       res.status(200).send(result)
     })
     .catch(next)
