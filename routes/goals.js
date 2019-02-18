@@ -7,6 +7,6 @@ const authCtrl = require('../controllers/auth')
 
 router.get('/:userId', goalsCtrl.getOneUserGoals)
 router.post('/', goalsCtrl.addGoal)
-router.delete('/:goalId', goalsCtrl.deleteGoal)
+router.delete('/goals/:goalId', goalsCtrl.deleteGoal)
 
 module.exports = router
