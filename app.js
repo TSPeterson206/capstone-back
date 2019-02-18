@@ -16,6 +16,7 @@ app.use('/auth', require('./routes/auth'))
 app.use('/providers', require('./routes/providers'))
 app.use('/reviews', require('./routes/reviews'))
 app.use('/users/:id/favorites', require('./routes/favorites'))
+app.use('/goals', require('./routes/goals'))
 
 
 app.use((req, res, next) => {
