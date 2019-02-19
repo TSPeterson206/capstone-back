@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
       table.integer('user_id').references('users.id').onDelete('CASCADE')
       table.text('goal').notNullable().defaultsTo('');
       table.text('enddate').notNullable().defaultsTo('');
-
       table.timestamps(true, true);
   })
 };
