@@ -4,7 +4,8 @@ function addGoal(body) {
   return knex('goals')
     .insert({
       'user_id': body.user_id,
-      'goal':body.goal
+      'goal':body.goal,
+      'enddate':body.enddate
     })
     .returning('*')
     .then(result => result)

@@ -3,7 +3,8 @@ const model = require('../models/goals');
 function addGoal(req, res, next) {
   let {
     goal,
-    user_id
+    user_id,
+    enddate
   } = req.body
   model.addGoal(req.body)
     .then((result) => {
@@ -14,7 +15,8 @@ function addGoal(req, res, next) {
         })
       res.status(201).send({
         goal,
-        user_id
+        user_id,
+        enddate
             })
     })
     .catch(next)
