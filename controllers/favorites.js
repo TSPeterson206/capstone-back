@@ -30,7 +30,16 @@ function getFavorites(req, res, next) {
     .catch(next)
 }
 
+function deleteFavorite(req, res, next) {
+  return model.deleteFavorite(req.params.favoriteId)
+    .then((result) =>
+      res.status(200).send(result)
+    )
+    .catch(err => next(err))
+}
+
 module.exports = {
   addAFavorite,
-  getFavorites
+  getFavorites,
+  deleteFavorite
 }
