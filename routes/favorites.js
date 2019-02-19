@@ -5,6 +5,6 @@ const router = express.Router({
 const favoritesCtrl = require('../controllers/favorites')
 
 router.post('/', favoritesCtrl.addAFavorite)
-router.get('/', favoritesCtrl.getOneUserFavorites)
+router.get('/', favoritesCtrl.getFavorites)
 
 module.exports = router

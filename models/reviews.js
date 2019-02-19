@@ -1,7 +1,6 @@
 const knex = require('../db/knex')
 
 function addReview(body) {
-  console.log('addreview models body',body)
   return knex('reviews')
     .insert({
       'user_id': body.user_id,

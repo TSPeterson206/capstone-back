@@ -11,16 +11,13 @@ function addAFavorite(body) {
     .then(result => result)
 }
 
-function getOneUserFavorites(userId) {
+function getFavorites() {
   return knex('favorites')
-    .where({
-      'favorites.user_id': userId
-    })
     .returning('*')
     .then(result => result)
 }
 
 module.exports = {
   addAFavorite,
-  getOneUserFavorites
+  getFavorites
 }
