@@ -22,8 +22,8 @@ function addAFavorite(req, res, next) {
     .catch(next)
 }
 
-function getFavorites(req, res, next) {
-  model.getFavorites()
+function getOneUserFavorites(req, res, next) {
+  model.getOneUserFavorites(req.params.userId)
     .then((result) => {
       res.status(200).send(result)
     })
@@ -40,6 +40,6 @@ function deleteFavorite(req, res, next) {
 
 module.exports = {
   addAFavorite,
-  getFavorites,
+  getOneUserFavorites,
   deleteFavorite
 }

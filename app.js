@@ -15,10 +15,8 @@ app.use('/users', require('./routes/users'))
 app.use('/auth', require('./routes/auth'))
 app.use('/providers', require('./routes/providers'))
 app.use('/reviews', require('./routes/reviews'))
-// app.use('/users/:id/favorites', require('./routes/favorites'))
-app.use('/goals', require('./routes/goals'))
 app.use('/favorites', require('./routes/favorites'))
-
+app.use('/goals', require('./routes/goals'))
 
 app.use((req, res, next) => {
   next({status:404, message: 'Unable to locate'})

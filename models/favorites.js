@@ -10,23 +10,26 @@ function addAFavorite(body) {
     .then(result => result)
 }
 
-function getFavorites() {
+function getOneUserFavorites(userId) {
   return knex('favorites')
-    .returning('*')
-    .then(result => result)
+  .select('providers.*','favorites.*', )
+    .where({
+      'user_id': userId
+    })
+    .innerJoin('providers', 'favorites.provider_id', 'providers.id')
 }
 
 function deleteFavorite(favoriteId) {
   return knex('favorites')
-  .where({
-    'id':favoriteId
-  })
-  .del()
-  .returning('*')
+    .where({
+      'id': favoriteId
+    })
+    .del()
+    .returning('*')
 }
 
 module.exports = {
   addAFavorite,
-  getFavorites,
+  getOneUserFavorites,
   deleteFavorite
 }
