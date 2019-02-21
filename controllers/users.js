@@ -51,9 +51,11 @@ function getAllUsers(req, res, next) {
 function editOneUser(req, res, next) {
   let {
     profilepic,
-    tagline
+    tagline,
+    soberdate
   } = req.body
 
+  soberdate= soberdate || undefined
   profilepic = profilepic || undefined
   tagline = tagline || undefined
 
@@ -79,7 +81,8 @@ function editOneUser(req, res, next) {
       }
       res.status(201).send({
         profilepic,
-        tagline
+        tagline,
+        soberdate
       })
     })
 }
