@@ -42,7 +42,8 @@ function editOneUser(userId, body) {
 			username: body.username,
 			password: body.password,
 			profilepic: body.profilepic,
-			tagline: body.tagline
+			tagline: body.tagline,
+			soberdate:body.soberdate
 		})
 		.where({
 			id: userId
