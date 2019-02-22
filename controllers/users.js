@@ -4,14 +4,17 @@ const cloudinary = require('cloudinary')
 function signup(req, res, next) {
   const {
     username,
-    password
+    password,
+    tagline,
+    profilepic,
+    soberdate
   } = req.body
   if (!username && !password)
     return next({
       status: 400,
       message: 'Username and Password required for creating an account'
     })
-  return usersModel.signup(username, password)
+  return usersModel.signup(username, password, tagline, profilepic, soberdate)
     .then(([data]) => {
       if (!data) return next({
         status: 500,
@@ -55,7 +58,7 @@ function editOneUser(req, res, next) {
     soberdate
   } = req.body
 
-  soberdate= soberdate || undefined
+  soberdate = soberdate || undefined
   profilepic = profilepic || undefined
   tagline = tagline || undefined
 
@@ -68,7 +71,8 @@ function editOneUser(req, res, next) {
 
   req.body = {
     profilepic,
-    tagline
+    tagline,
+    soberdate
   }
 
   return usersModel.editOneUser(req.params.userId, req.body)
