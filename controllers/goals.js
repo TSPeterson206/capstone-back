@@ -16,7 +16,8 @@ function addGoal(req, res, next) {
       res.status(201).send({
         goal,
         user_id,
-        enddate
+        enddate,
+        created_at:result[0].created_at
             })
     })
     .catch(next)
