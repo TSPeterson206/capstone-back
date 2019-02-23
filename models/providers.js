@@ -24,15 +24,15 @@ function deleteProvider(providerId) {
     .then(result => result)
 }
 
-function updateProvider(providerId, body) {
+function addProvider(body) {
+  console.log(body)
   return knex('providers')
-    .where({
-      'providers.id': providerId
-    })
-    .update({
+    // .where({
+    //   'providers.id': providerId
+    // })
+    .insert({
       companyname: body.companyname,
       providerbio: body.providerbio,
-      services: body.services,
       address: body.address,
       phone: body.phone,
       businessphoto: body.businessphoto,
@@ -45,5 +45,5 @@ module.exports = {
   getAllProviders,
   getOneProvider,
   deleteProvider,
-  updateProvider
+  addProvider
 }

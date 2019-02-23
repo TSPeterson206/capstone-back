@@ -7,6 +7,6 @@ const providersCtrl = require('../controllers/providers')
 router.get('/', providersCtrl.getAllProviders)
 router.get('/:providerId', providersCtrl.getOneProvider)
 router.delete('/:providerId', providersCtrl.deleteProvider)
-router.put('/:providerId', providersCtrl.updateProvider)
+router.post('/', providersCtrl.addProvider)
 
 module.exports = router
