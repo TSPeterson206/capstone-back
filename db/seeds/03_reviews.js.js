@@ -123,7 +123,6 @@ exports.seed = function(knex, Promise) {
     {id: 121, content:'Great Service! It saved my life.', rating:4, user_id:1, provider_id:8},
     {id: 122, content:'This place could use some work.', rating:1, user_id:2, provider_id:9},
     {id: 123, content:'This place could use some work.', rating:1, user_id:2, provider_id:10}
-
     ])
   .then(() => {
     return knex.raw("SELECT setval('reviews_id_seq', (SELECT MAX(id) FROM reviews));")
