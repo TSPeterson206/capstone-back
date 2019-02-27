@@ -24,7 +24,6 @@ exports.seed = function(knex, Promise) {
     {id: 22, user_id:2, goal:"sample goal"},
     {id: 23, user_id:3, goal:"sample goal"},
     {id: 24, user_id:4, goal:"sample goal"}
-
     ])
   .then(() => {
     return knex.raw("SELECT setval('goals_id_seq', (SELECT MAX(id) FROM goals));")

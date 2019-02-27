@@ -1,7 +1,6 @@
 const knex = require('../db/knex')
 
 function addAFavorite(body) {
-  console.log(body)
   return knex('favorites')
     .insert({
       'user_id': body.user_id,
@@ -13,14 +12,24 @@ function addAFavorite(body) {
 
 function getOneUserFavorites(userId) {
   return knex('favorites')
+  .select('providers.*','favorites.*', )
     .where({
-      'favorites.user_id': userId
+      'user_id': userId
     })
+    .innerJoin('providers', 'favorites.provider_id', 'providers.id')
+}
+
+function deleteFavorite(favoriteId) {
+  return knex('favorites')
+    .where({
+      'id': favoriteId
+    })
+    .del()
     .returning('*')
-    .then(result => result)
 }
 
 module.exports = {
   addAFavorite,
-  getOneUserFavorites
+  getOneUserFavorites,
+  deleteFavorite
 }

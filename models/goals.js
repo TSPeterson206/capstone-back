@@ -1,11 +1,15 @@
 const knex = require('../db/knex')
 
-function addAGoal(body) {
+function addGoal(body) {
+  console.log(body)
   return knex('goals')
     .insert({
+      'id':body.id,
       'user_id': body.user_id,
-      'goal':body.goal
+      'goal':body.goal,
+      'enddate':body.enddate
     })
+    
     .returning('*')
     .then(result => result)
 }
@@ -30,7 +34,7 @@ function deleteGoal(goalId) {
 }
 
 module.exports = {
-  addAGoal,
+  addGoal,
   getOneUserGoals,
   deleteGoal
 }

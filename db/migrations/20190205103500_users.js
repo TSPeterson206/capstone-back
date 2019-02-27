@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
       table.string('password').notNullable().defaultsTo('');
       table.string('profilepic').notNullable().defaultsTo('');
       table.string('tagline').notNullable().defaultsTo('');
+      table.string('soberdate').defaultsTo('');
       table.timestamps(true, true);
   })
 };

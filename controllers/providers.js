@@ -29,19 +29,17 @@ function deleteProvider(req, res, next) {
     .catch(err => next(err))
 }
 
-function updateProvider(req, res, next) {
+function addProvider(req, res, next) {
   let {
     companyname,
     providerbio,
-    services,
     address,
-    avgrating,
     phone,
     businessphoto,
     typeID
   } = req.body
 
-  return model.updateProvider(req.params.providerId, req.body)
+  return model.addProvider(req.body)
     .then((result) => {
       if (!result) {
         return next({
@@ -52,9 +50,7 @@ function updateProvider(req, res, next) {
       res.status(201).send({
         companyname,
         providerbio,
-        services,
         address,
-        avgrating,
         phone,
         businessphoto,
         typeID
@@ -68,5 +64,5 @@ module.exports = {
   getAllProviders,
   getOneProvider,
   deleteProvider,
-  updateProvider
+  addProvider
 }

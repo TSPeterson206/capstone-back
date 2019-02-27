@@ -9,7 +9,7 @@ function getOneUser(userId) {
 		.returning('*')
 }
 
-function signup(username, password) {
+function signup(username, password, tagline, profilepic, soberdate) {
 	return knex('users')
 		.where({
 			username
@@ -25,7 +25,10 @@ function signup(username, password) {
 			return knex('users')
 				.insert({
 					username,
-					password: hashedPW
+					password: hashedPW,
+					tagline,
+					profilepic,
+					soberdate
 				})
 				.returning('users.username')
 		})
@@ -39,10 +42,9 @@ function getAllUsers() {
 function editOneUser(userId, body) {
 	return knex('users')
 		.update({
-			username: body.username,
-			password: body.password,
 			profilepic: body.profilepic,
-			tagline: body.tagline
+			tagline: body.tagline,
+			soberdate:body.soberdate
 		})
 		.where({
 			id: userId
