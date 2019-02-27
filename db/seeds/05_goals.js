@@ -17,13 +17,13 @@ exports.seed = function(knex, Promise) {
     {id: 15, user_id:5, goal:"sample goal"},
     {id: 16, user_id:6, goal:"sample goal"},
     {id: 17, user_id:7, goal:"sample goal"},
-    {id: 17, user_id:8, goal:"sample goal"},
-    {id: 17, user_id:9, goal:"sample goal"},
-    {id: 18, user_id:10, goal:"sample goal"},
-    {id: 19, user_id:1, goal:"sample goal"},
-    {id: 20, user_id:2, goal:"sample goal"},
-    {id: 21, user_id:3, goal:"sample goal"},
-    {id: 22, user_id:4, goal:"sample goal"}
+    {id: 18, user_id:8, goal:"sample goal"},
+    {id: 19, user_id:9, goal:"sample goal"},
+    {id: 20, user_id:10, goal:"sample goal"},
+    {id: 21, user_id:1, goal:"sample goal"},
+    {id: 22, user_id:2, goal:"sample goal"},
+    {id: 23, user_id:3, goal:"sample goal"},
+    {id: 24, user_id:4, goal:"sample goal"}
 
     ])
   .then(() => {
