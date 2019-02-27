@@ -24,3 +24,6 @@ Please checkout the package.json file for more details on packages and utilities
 ## Bugs and Issues
 
 For bugs and suggestions, please visit the [issues section](https://github.com/TSPeterson206/capstone-front/issues).
+
+<img src="https://github.com/TSPeterson206/capstone-front/blob/master/capstone/erdplus-diagram.png">
+
