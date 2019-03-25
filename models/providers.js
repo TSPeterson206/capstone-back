@@ -25,11 +25,7 @@ function deleteProvider(providerId) {
 }
 
 function addProvider(body) {
-  console.log(body)
   return knex('providers')
-    // .where({
-    //   'providers.id': providerId
-    // })
     .insert({
       companyname: body.companyname,
       providerbio: body.providerbio,
