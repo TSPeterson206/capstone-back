@@ -1,4 +1,4 @@
-<img src="https://github.com/TSPeterson206/capstone-front/blob/master/capstone/nextstepscreenshot.png">
+<img src="https://github.com/TSPeterson206/capstone-back/blob/master/nextstepscreenshot.png">
 
 # Introduction
 
