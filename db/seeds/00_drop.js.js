@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+exports.seed = function (knex, Promise) {
   return knex('users').del()
     .then(() => {
       return knex('providers').del()
@@ -15,5 +15,4 @@ exports.seed = function(knex, Promise) {
     .then(() => {
       return knex('goals').del()
     })
-};
-
+}

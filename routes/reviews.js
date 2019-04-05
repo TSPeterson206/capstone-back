@@ -3,7 +3,6 @@ const router = express.Router({
   mergeParams: true
 })
 const reviewsCtrl = require('../controllers/reviews')
-const authCtrl = require('../controllers/auth')
 
 router.get('/', reviewsCtrl.getAllReviews)
 router.get('/:reviewId', reviewsCtrl.getOneReview)

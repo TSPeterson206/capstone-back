@@ -1,6 +1,6 @@
 const knex = require('../db/knex')
 
-function addReview(body) {
+function addReview (body) {
   return knex('reviews')
     .insert({
       'user_id': body.user_id,
@@ -12,7 +12,7 @@ function addReview(body) {
     .then(result => result)
 }
 
-function getOneReview(reviewId) {
+function getOneReview (reviewId) {
   return knex('reviews')
     .where({
       'reviews.id': reviewId
@@ -20,12 +20,12 @@ function getOneReview(reviewId) {
     .then(result => result)
 }
 
-function getAllReviews() {
+function getAllReviews () {
   return knex('reviews')
     .then(result => result)
 }
 
-function getOneProviderReviews(providerId) {
+function getOneProviderReviews (providerId) {
   return knex('reviews')
     .where({
       'reviews.provider_id': providerId
@@ -33,7 +33,7 @@ function getOneProviderReviews(providerId) {
     .then(result => result)
 }
 
-function getOneUserReviews(userId) {
+function getOneUserReviews (userId) {
   return knex('reviews')
     .where({
       'reviews.user_id': userId
@@ -42,7 +42,7 @@ function getOneUserReviews(userId) {
     .then(result => result)
 }
 
-function deleteReview(reviewId) {
+function deleteReview (reviewId) {
   return knex('reviews')
     .where({
       'reviews.id': reviewId
@@ -52,7 +52,7 @@ function deleteReview(reviewId) {
     .then(result => result)
 }
 
-function updateReview(reviewId, body) {
+function updateReview (reviewId, body) {
   return knex('reviews')
     .where({
       'reviews.id': reviewId

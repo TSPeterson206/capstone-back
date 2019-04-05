@@ -1,20 +1,20 @@
 const knex = require('../db/knex')
 
-function addGoal(body) {
+function addGoal (body) {
   console.log(body)
   return knex('goals')
     .insert({
-      'id':body.id,
+      'id': body.id,
       'user_id': body.user_id,
-      'goal':body.goal,
-      'enddate':body.enddate
+      'goal': body.goal,
+      'enddate': body.enddate
     })
-    
+
     .returning('*')
     .then(result => result)
 }
 
-function getOneUserGoals(userId) {
+function getOneUserGoals (userId) {
   return knex('goals')
     .where({
       'goals.user_id': userId
@@ -23,7 +23,7 @@ function getOneUserGoals(userId) {
     .then(result => result)
 }
 
-function deleteGoal(goalId) {
+function deleteGoal (goalId) {
   return knex('goals')
     .where({
       'goals.id': goalId

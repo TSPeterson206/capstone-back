@@ -1,6 +1,6 @@
-const model = require('../models/providers');
+const model = require('../models/providers')
 
-function getAllProviders(req, res, next) {
+function getAllProviders (req, res, next) {
   model.getAllProviders()
     .then((result) => {
       res.status(200).send(result)
@@ -8,20 +8,21 @@ function getAllProviders(req, res, next) {
     .catch(next)
 }
 
-function getOneProvider(req, res, next) {
+function getOneProvider (req, res, next) {
   model.getOneProvider(req.params.providerId)
     .then((result) => {
-      if (!result || result.length === 0)
+      if (!result || result.length === 0) {
         return next({
           status: 404,
-          message: "provider not found!"
+          message: 'provider not found!'
         })
+      }
       res.status(200).send(result)
     })
     .catch(next)
 };
 
-function deleteProvider(req, res, next) {
+function deleteProvider (req, res, next) {
   return model.deleteProvider(req.params.providerId)
     .then((result) =>
       res.status(200).send(result)
@@ -29,7 +30,7 @@ function deleteProvider(req, res, next) {
     .catch(err => next(err))
 }
 
-function addProvider(req, res, next) {
+function addProvider (req, res, next) {
   let {
     companyname,
     providerbio,
@@ -44,7 +45,7 @@ function addProvider(req, res, next) {
       if (!result) {
         return next({
           status: 404,
-          message: "error"
+          message: 'error'
         })
       }
       res.status(201).send({
@@ -58,7 +59,6 @@ function addProvider(req, res, next) {
     })
     .catch(next)
 }
-
 
 module.exports = {
   getAllProviders,

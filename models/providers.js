@@ -1,12 +1,11 @@
 const knex = require('../db/knex')
 
-
-function getAllProviders() {
+function getAllProviders () {
   return knex('providers')
     .then(result => result)
 }
 
-function getOneProvider(providerId) {
+function getOneProvider (providerId) {
   return knex('providers')
     .where({
       'providers.id': providerId
@@ -14,7 +13,7 @@ function getOneProvider(providerId) {
     .then(result => result)
 }
 
-function deleteProvider(providerId) {
+function deleteProvider (providerId) {
   return knex('providers')
     .where({
       'providers.id': providerId
@@ -24,7 +23,7 @@ function deleteProvider(providerId) {
     .then(result => result)
 }
 
-function addProvider(body) {
+function addProvider (body) {
   return knex('providers')
     .insert({
       companyname: body.companyname,

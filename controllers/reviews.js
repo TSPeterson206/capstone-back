@@ -1,6 +1,6 @@
-const model = require('../models/reviews');
+const model = require('../models/reviews')
 
-function addReview(req, res, next) {
+function addReview (req, res, next) {
   let {
     content,
     rating,
@@ -9,11 +9,12 @@ function addReview(req, res, next) {
   } = req.body
   model.addReview(req.body)
     .then((result) => {
-      if (!result)
+      if (!result) {
         return next({
           status: 500,
-          message: "error"
+          message: 'error'
         })
+      }
       res.status(201).send({
         content,
         rating,
@@ -24,7 +25,7 @@ function addReview(req, res, next) {
     .catch(next)
 }
 
-function getOneReview(req, res, next) {
+function getOneReview (req, res, next) {
   model.getOneReview(req.params.reviewId)
     .then((result) => {
       res.status(200).send(result)
@@ -32,7 +33,7 @@ function getOneReview(req, res, next) {
     .catch(next)
 }
 
-function getAllReviews(req, res, next) {
+function getAllReviews (req, res, next) {
   model.getAllReviews()
     .then((result) => {
       res.status(200).send(result)
@@ -40,7 +41,7 @@ function getAllReviews(req, res, next) {
     .catch(next)
 }
 
-function getOneProviderReviews(req, res, next) {
+function getOneProviderReviews (req, res, next) {
   model.getOneProviderReviews(req.params.providerId)
     .then((result) => {
       res.status(200).send(result)
@@ -48,20 +49,21 @@ function getOneProviderReviews(req, res, next) {
     .catch(next)
 };
 
-function getOneUserReviews(req, res, next) {
+function getOneUserReviews (req, res, next) {
   model.getOneUserReviews(req.params.userId)
     .then((result) => {
-      if (!result || result.length === 0)
+      if (!result || result.length === 0) {
         return next({
           status: 404,
-          message: "user not found!"
+          message: 'user not found!'
         })
+      }
       res.status(200).send(result)
     })
     .catch(next)
 };
 
-function deleteReview(req, res, next) {
+function deleteReview (req, res, next) {
   return model.deleteReview(req.params.reviewId)
     .then((result) =>
       res.status(200).send(result)
@@ -69,7 +71,7 @@ function deleteReview(req, res, next) {
     .catch(err => next(err))
 }
 
-function updateReview(req, res, next) {
+function updateReview (req, res, next) {
   let {
     content,
     rating
@@ -80,7 +82,7 @@ function updateReview(req, res, next) {
       if (!result) {
         return next({
           status: 404,
-          message: "error"
+          message: 'error'
         })
       }
       res.status(201).send({

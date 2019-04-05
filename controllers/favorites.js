@@ -1,7 +1,6 @@
-const model = require('../models/favorites');
+const model = require('../models/favorites')
 
-
-function addAFavorite(req, res, next) {
+function addAFavorite (req, res, next) {
   let {
     user_id,
     provider_id
@@ -9,11 +8,12 @@ function addAFavorite(req, res, next) {
 
   model.addAFavorite(req.body)
     .then((result) => {
-      if (!result)
+      if (!result) {
         return next({
           status: 500,
-          message: "error"
+          message: 'error'
         })
+      }
       res.status(201).send({
         user_id,
         provider_id
@@ -22,7 +22,7 @@ function addAFavorite(req, res, next) {
     .catch(next)
 }
 
-function getOneUserFavorites(req, res, next) {
+function getOneUserFavorites (req, res, next) {
   model.getOneUserFavorites(req.params.userId)
     .then((result) => {
       res.status(200).send(result)
@@ -30,7 +30,7 @@ function getOneUserFavorites(req, res, next) {
     .catch(next)
 }
 
-function deleteFavorite(req, res, next) {
+function deleteFavorite (req, res, next) {
   return model.deleteFavorite(req.params.favoriteId)
     .then((result) =>
       res.status(200).send(result)

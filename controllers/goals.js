@@ -1,6 +1,6 @@
-const model = require('../models/goals');
+const model = require('../models/goals')
 
-function addGoal(req, res, next) {
+function addGoal (req, res, next) {
   let {
     goal,
     user_id,
@@ -8,22 +8,23 @@ function addGoal(req, res, next) {
   } = req.body
   model.addGoal(req.body)
     .then((result) => {
-      if (!result)
+      if (!result) {
         return next({
           status: 500,
-          message: "error"
+          message: 'error'
         })
+      }
       res.status(201).send({
         goal,
         user_id,
         enddate,
-        created_at:result[0].created_at
-            })
+        created_at: result[0].created_at
+      })
     })
     .catch(next)
 }
 
-function getOneUserGoals(req, res, next) {
+function getOneUserGoals (req, res, next) {
   model.getOneUserGoals(req.params.userId)
     .then((result) => {
       res.status(200).send(result)
@@ -31,7 +32,7 @@ function getOneUserGoals(req, res, next) {
     .catch(next)
 }
 
-function deleteGoal(req, res, next) {
+function deleteGoal (req, res, next) {
   return model.deleteGoal(req.params.goalId)
     .then((result) =>
       res.status(200).send(result)
